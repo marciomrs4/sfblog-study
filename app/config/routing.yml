@@ -1,0 +1,8 @@
+mrs_core:
+    resource: "@MRSCoreBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
