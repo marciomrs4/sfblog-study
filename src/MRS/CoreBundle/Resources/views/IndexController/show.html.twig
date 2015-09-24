@@ -1,8 +1,22 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}MRSCoreBundle:IndexController:show{% endblock %}
+{% block title %}Blog - {{ post.title }}{% endblock %}
 
-{% block body %}
-<h1>Welcome to the IndexController:show page</h1>
-    {{ dump(post) }}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <article class="col-lg-12">
+                <h1>{{ post.title }}</h1>
+
+
+                <p>Escrito por: {{ post.author.name }}</p>
+                <p>Postado em: {{ post.createdAt | date('d/m/Y - H:m:s') }}</p>
+                <p>{{ post.content }}</p>
+
+
+            </article>
+
+        </div>
+    </div>
+
 {% endblock %}
