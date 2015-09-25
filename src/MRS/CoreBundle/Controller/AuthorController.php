@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use MRS\ModelBundle\Entity\Author;
 use MRS\ModelBundle\Form\AuthorType;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 /**
  * Author controller.
@@ -44,6 +45,13 @@ class AuthorController extends Controller
      */
     public function createAction(Request $request)
     {
+
+        $secutiryContext = $this->get('security.context')->isGranted('ROLE_ADMIN');
+
+        if($secutiryContext){
+            throw new AccessDeniedException("Somente quem eu deixar pode entrar aqui");
+        }
+
         $entity = new Author();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);

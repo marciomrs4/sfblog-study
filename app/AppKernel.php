@@ -21,7 +21,8 @@ class AppKernel extends Kernel
             new MRS\ModelBundle\MRSModelBundle(),
             new \Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new \Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-            new \FOS\UserBundle\FOSUserBundle()
+            new \FOS\UserBundle\FOSUserBundle(),
+            new MRS\UserBundle\MRSUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
